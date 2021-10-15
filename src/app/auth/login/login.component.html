@@ -1,0 +1,67 @@
+<nb-card class="div-card">
+    <nb-card-body>
+        <h1 id="title" class="title">Login</h1>
+        <nb-alert *ngIf="message" outline="danger" role="alert" (close)="$event.preventDefault()">
+            <p class="alert-title"><b>{{message}}</b></p>
+        </nb-alert>
+        <div>
+            <form class="center" #loginForm="ngForm">
+                <div class="form-control-group div-container">
+                    <label for="email" class="label">E-mail</label>
+                    <input nbInput type="email" id="email" name="email" placeholder="E-mail" aria-describedby="emailHelp" pattern=".+@.+\..+"
+                           class="form-control size-large status-basic" 
+                           [ngClass]="{ 
+                               'status-primary' : !email.touched, 
+                               'status-success' : !email.errors && (email.dirty || email.touched), 
+                               'status-danger'  : email.errors && (email.dirty || email.touched) 
+                            }" 
+                           [(ngModel)]="userLogin.email" #email="ngModel" 
+                           [attr.aria-invalid]="email.invalid && email.touched ? true : null" 
+                           required>
+                    <ng-container *ngIf="email.errors && (email.dirty || email.touched)">
+                        <p class="caption status-danger" *ngIf="email.errors?.required">
+                            O e-mail deve ser preenchido!
+                        </p>
+                        <p class="caption status-danger" *ngIf="email.errors?.pattern">
+                            O e-mail deve ser válido!
+                        </p>
+                    </ng-container>
+                </div>
+                <div class="form-control-group div-container">
+                    <label for="password" class="label">Senha</label>
+                    <input nbInput type="password" id="password" name="password" placeholder="Senha" minlength="8" maxlength="20"
+                           class="form-control size-large status-basic" 
+                           [ngClass]="{ 
+                               'status-primary' : !password.touched, 
+                               'status-success' : !password.errors && (password.dirty || password.touched), 
+                               'status-danger'  : password.errors && (password.dirty || password.touched) 
+                            }" 
+                           [(ngModel)]="userLogin.password" #password="ngModel" 
+                           [attr.aria-invalid]="password.invalid && password.touched ? true : null" 
+                           required>
+                    <ng-container *ngIf="password.errors && (password.dirty || password.touched)">
+                        <p class="caption status-danger" *ngIf="!password.errors?.required">
+                            A senha deve ser preenchido!
+                        </p>
+                        <p class="caption status-danger" *ngIf="!password.errors?.minlength || !password.errors?.maxlength">
+                            A senha deve conter no minímo 8 caracteres.
+                        </p>
+                    </ng-container>
+                </div>
+                <div class="form-control-group div-container">
+                    <button nbButton type="button" status="primary" 
+                            class="appearance-filled full-width size-large shape-rectangle status-primary nb-transition" 
+                            (click)="login()" [disabled]="!loginForm.form.valid">
+                            Entrar
+                    </button>
+                </div>
+                <div class="form-control-group div-container label">
+                    Não tem cadastro?
+                    <a [routerLink]="['/user/create']">
+                        Cadastre-se aqui!
+                    </a>
+                </div>
+            </form>
+        </div>
+    </nb-card-body>
+</nb-card>

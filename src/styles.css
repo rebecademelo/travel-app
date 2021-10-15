@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+.center {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+}
+
+form {
+    display: block;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.label {
+    font-size: 1rem !important;
+    margin-bottom: 0.45rem;
+}
+
+.div-container {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.div-card {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 95%;
+}
+
+.div-input-margin {
+    margin-right: 2%;
+}
+
+.div-input {
+    display: flex;
+}
+
+.full-size-div {
+    width: 100%;
+}
+
+.full-size-input {
+    max-width: 100% !important;
+}
+
+.half-size-div {
+    width: 50%;
+}
+
+.no-focus-button-area {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+
+@media screen and (max-width: 470px) {
+    .div-input {
+        display: block;
+    }
+
+    .half-size-div {
+        width: 100%;
+    }
+}

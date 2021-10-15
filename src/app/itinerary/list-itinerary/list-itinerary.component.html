@@ -1,0 +1,64 @@
+<div class="list-cards-container">            
+    <div>
+        <h1 id="title" class="title">Roteiros</h1>
+        
+        <nb-list>
+            <nb-list-item *ngFor="let itinerary of itineraries">
+                <nb-card class="card-div">
+                    <nb-card-body>
+                        <div class="flex-body">
+                            <div class="flex-row">
+                                <img [src]="itinerary.image64" alt="Roteiro" width="250" height="250">
+                            </div>
+                            <div class="flex-column">
+                                <div class="flex-card-text">
+                                    <span class="description-span">{{ itinerary.description }}</span>
+                                </div>
+                                <div class="flex-card-text dates-div">
+                                    <p><span class="dates-span">{{ itinerary.initialDate }}</span></p>
+                                    <p><span class="dates-span"> - </span></p>
+                                    <p><span class="dates-span">{{ itinerary.finalDate }}</span></p>
+                                </div>
+                                <div class="card-icon">
+                                    <a [routerLink]="['/itinerary/edit', itinerary.id]" alt="Editar">
+                                        <nb-icon icon="edit-outline" class="card-item-icon card-item-icon-circle"></nb-icon>
+                                    </a>
+                                    <a href="javascript:void(0);" alt="Excluir" (click)="open(dialog, itinerary)">
+                                        <nb-icon icon="trash-2-outline" class="card-item-icon-circle"></nb-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </nb-list-item>
+        </nb-list>
+    </div>
+</div>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+        <nb-card-header>Remover roteiro</nb-card-header>
+        <nb-card-body>
+            Deseja mesmo excluir o roteiro: {{ data.description }}?
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="div-input">
+                <div class="div-input-margin half-size-div">
+                    <button nbButton type="button" status="info" 
+                            class="appearance-filled full-width size-large shape-rectangle status-info no-focus-button-area"
+                            (click)="ref.close()">
+                            Cancelar
+                    </button>
+                </div>
+                <div class="half-size-div">
+                    <button nbButton type="button" status="primary" 
+                            class="appearance-filled full-width size-large shape-rectangle status-primary no-focus-button-area" 
+                            (click)="delete($event, data, ref)">
+                            Excluir
+                    </button>
+                </div>
+            </div>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>

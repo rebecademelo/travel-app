@@ -1,0 +1,102 @@
+<nb-card class="div-card">
+    <nb-card-body>
+        <h1 id="title" class="title" [textContent]="title"></h1>
+        <div>
+            <form class="center" #userForm="ngForm">
+                <div class="form-control-group div-container">
+                    <label for="name" class="label">Nome</label>
+                    <input nbInput type="text" id="name" name="name" placeholder="Nome" minlength="2"
+                           class="form-control size-large status-basic" 
+                           [ngClass]="{ 
+                            'status-primary' : !name.touched, 
+                            'status-success' : !name.errors && (name.dirty || name.touched), 
+                            'status-danger'  : name.errors && (name.dirty || name.touched) 
+                           }" 
+                           [(ngModel)]="user.name" #name="ngModel" 
+                           required>
+                </div>
+                
+                <div class="form-control-group div-container">
+                    <div class="form-control-group div-container full-size-div">
+                        <label for="email" class="label">E-mail</label>
+                        <input nbInput type="email" id="email" name="email" placeholder="E-mail" aria-describedby="emailHelp" 
+                               class="form-control size-large status-basic" 
+                               [ngClass]="{ 
+                                'status-primary' : !email.touched, 
+                                'status-success' : !email.errors && (email.dirty || email.touched), 
+                                'status-danger'  : email.errors && (email.dirty || email.touched) 
+                               }"
+                               [(ngModel)]="user.email" #email="ngModel" 
+                               required>
+                    </div>
+                </div>
+                <div class="form-control-group div-container">
+                    <div class="form-control-group div-container  full-size-div">
+                        <label for="password" class="label">Senha</label>
+                        <input nbInput type="password" id="password" name="password" placeholder="Senha" minlength="8" 
+                               class="form-control size-large status-basic" 
+                               [ngClass]="{ 
+                                'status-primary' : !password.touched, 
+                                'status-success' : !password.errors && (password.dirty || password.touched), 
+                                'status-danger'  : password.errors && (password.dirty || password.touched) 
+                               }"
+                               [(ngModel)]="user.password" #password="ngModel" 
+                               required>
+                    </div>
+                </div>
+                <div class="div-input">
+                    <div class="form-control-group div-input-margin div-container half-size-div">
+                        <button nbButton type="button" status="primary" 
+                                class="appearance-filled full-width size-large shape-rectangle status-primary" 
+                                (click)="saveUser()"  
+                                [disabled]="!userForm.form.valid">
+                                Salvar
+                        </button>
+                    </div>
+                    <div class="form-control-group div-container half-size-div">
+                        <button nbButton type="button" status="info" 
+                                class="appearance-filled full-width size-large shape-rectangle status-info"
+                                [routerLink]="['/home']">
+                                Voltar
+                        </button>
+                    </div>
+                </div>
+                <div class="form-control-group div-container">
+                    <button nbButton type="button" status="danger" 
+                            class="appearance-filled full-width size-large shape-rectangle status-danger" 
+                            (click)="open(dialog, user)" 
+                            [hidden]="user.id == undefined">
+                            Deletar conta
+                    </button>
+                </div>
+            </form>
+        </div>
+    </nb-card-body>
+</nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+        <nb-card-header>Remover conta</nb-card-header>
+        <nb-card-body>
+            Deseja mesmo excluir sua conta?
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="div-input">
+                <div class="div-input-margin half-size-div">
+                    <button nbButton type="button" status="info" 
+                            class="appearance-filled full-width size-large shape-rectangle status-info no-focus-button-area"
+                            (click)="ref.close()">
+                            Cancelar
+                    </button>
+                </div>
+                <div class="half-size-div">
+                    <button nbButton type="button" status="primary" 
+                            class="appearance-filled full-width size-large shape-rectangle status-primary no-focus-button-area" 
+                            (click)="delete($event, data, ref)">
+                            Excluir
+                    </button>
+                </div>
+            </div>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>

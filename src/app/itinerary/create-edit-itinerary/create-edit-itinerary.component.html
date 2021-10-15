@@ -1,0 +1,118 @@
+<nb-card class="div-card">
+    <nb-card-body>
+        <h1 id="title" class="title" [textContent]="title"></h1>
+        <div>
+            <form class="center" #itineraryForm="ngForm">
+                <div class="div-input">
+                    <div class="form-control-group div-container full-size-div">
+                        <label for="description" class="label">Descrição</label>
+                        <input nbInput type="text" id="description" name="name" placeholder="Descrição" minlength="5" maxlength="100" 
+                            class="form-control size-large status-basic full-size-input" 
+                            [ngClass]="{ 
+                                'status-primary' : !description.touched, 
+                                'status-success' : !description.errors && (description.dirty || description.touched), 
+                                'status-danger'  : description.errors && (description.dirty || description.touched) 
+                            }" 
+                            [(ngModel)]="itinerary.description" #description="ngModel" 
+                            required>
+                    </div>
+                </div>
+                <div class="div-input">
+                    <div class="form-control-group div-input-margin div-container one-third-size-div">
+                        <label for="country" class="label">País</label>
+                        <input nbInput type="text" id="country" name="country" placeholder="País" minlength="2" maxlength="100" 
+                            class="form-control size-large status-basic full-size-input"
+                            [ngClass]="{ 
+                                'status-primary' : !country.touched, 
+                                'status-success' : !country.errors && (country.dirty || country.touched), 
+                                'status-danger'  : country.errors && (country.dirty || country.touched) 
+                            }" 
+                            [(ngModel)]="itinerary.country" #country="ngModel" 
+                            required>
+                    </div>
+                    <div class="form-control-group div-input-margin div-container one-third-size-div">
+                        <label for="state" class="label">Estado</label>
+                        <input nbInput type="text" id="state" name="state" placeholder="Estado" minlength="2" maxlength="100" 
+                            class="form-control size-large status-basic full-size-input" 
+                            [ngClass]="{ 
+                                'status-primary' : !state.touched, 
+                                'status-success' : !state.errors && (state.dirty || state.touched), 
+                                'status-danger'  : state.errors && (state.dirty || state.touched) 
+                            }" 
+                            [(ngModel)]="itinerary.state" #state="ngModel" 
+                            required>
+                    </div>
+                    <div class="form-control-group div-container one-third-size-div">
+                        <label for="city" class="label">Cidade</label>
+                        <input nbInput type="text" id="city" name="city" placeholder="Cidade" minlength="2" maxlength="100" 
+                            class="form-control size-large status-basic full-size-input" 
+                            [ngClass]="{ 
+                                'status-primary' : !city.touched, 
+                                'status-success' : !city.errors && (city.dirty || city.touched), 
+                                'status-danger'  : city.errors && (city.dirty || city.touched) 
+                            }" 
+                            [(ngModel)]="itinerary.city" #city="ngModel" 
+                            required>
+                    </div>
+                </div>
+                <div class="div-input">
+                    <div class="form-control-group div-input-margin div-container half-size-div">
+                        <label for="initialDate" class="label">Data inicial</label>
+                        <input nbInput type="text" id="initialDate" name="initialDate" placeholder="Data inicial" mask="d0/M0/0000" [showMaskTyped]="true"  [dropSpecialCharacters]="false" 
+                            class="form-control size-large status-basic full-size-input"
+                            [ngClass]="{ 
+                                'status-primary' : !initialDate.touched, 
+                                'status-success' : !initialDate.errors && (initialDate.dirty || initialDate.touched), 
+                                'status-danger'  : initialDate.errors && (initialDate.dirty || initialDate.touched) 
+                            }" 
+                            [(ngModel)]="itinerary.initialDate" #initialDate="ngModel" 
+                            required>
+                    </div>
+                    <div class="form-control-group div-container half-size-div">
+                        <label for="finalDate" class="label">Data final</label>
+                        <input nbInput type="text" id="finalDate" name="finalDate" placeholder="Data final" mask="d0/M0/0000" [showMaskTyped]="true"  [dropSpecialCharacters]="false" 
+                            class="form-control size-large status-basic full-size-input" 
+                            [ngClass]="{ 
+                                'status-primary' : !finalDate.touched, 
+                                'status-success' : !finalDate.errors && (finalDate.dirty || finalDate.touched), 
+                                'status-danger' : finalDate.errors && (finalDate.dirty || finalDate.touched) 
+                            }" 
+                            [(ngModel)]="itinerary.finalDate" #finalDate="ngModel" 
+                            required>
+                    </div>
+                </div>
+                <div class="div-input">
+                    <div class="form-control-group div-container full-size-div">
+                        <label for="image" class="label">Imagem</label>
+                        <input nbInput type="file" id="image" name="image" 
+                               class="form-control size-large status-basic full-size-input status-primary" 
+                               (change)="onFileSelected($event)" #fileUpload>
+                    </div>
+                </div>
+                <div class="div-input">
+                    <div class="file-upload">
+                        {{fileName || "Nenhum upload de imagem ainda."}}
+                        <fa-icon [icon]="faFileImage"></fa-icon>
+                    </div>
+                </div>
+                <div class="div-input div-form-button">
+                    <div class="form-control-group div-input-margin div-container half-size-div">
+                        <button nbButton type="button" status="primary" 
+                                class="appearance-filled full-width size-large shape-rectangle status-primary nb-transition" 
+                                (click)="saveItinerary()" 
+                                [disabled]="!itineraryForm.form.valid">
+                                Salvar
+                        </button>
+                    </div>
+                    <div class="form-control-group div-container half-size-div">
+                        <button nbButton type="button" status="info" 
+                                class="appearance-filled full-width size-large shape-rectangle status-info nb-transition"
+                                [routerLink]="['/itinerary/list']">
+                                Voltar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,33 @@
+.center {
+    width: 100%;
+    max-width: 90%;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+}
+
+.file-input {
+    display: none;
+}
+
+.one-third-size-div {
+    width: 33.3%;
+}
+
+.div-form-button {
+    width: 50%;
+    margin: auto;
+}
+
+.file-upload {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 470px) {
+    .one-third-size-div {
+        width: 100%;
+    }
+    .div-form-button {
+        width: 100%;
+    }
+}
