@@ -25,7 +25,12 @@ export class AppComponent {
       title: 'Roteiros',
       link: 'itinerary/list',
       icon: 'map-outline',
-    }
+    },
+    {
+      title: 'Novo roteiro',
+      link: 'itinerary/create',
+      icon: 'plus-circle-outline',
+    },
   ];
 
   constructor(

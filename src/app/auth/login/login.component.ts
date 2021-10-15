@@ -52,7 +52,12 @@ export class LoginComponent implements OnInit {
               title: 'Roteiros',
               link: 'itinerary/list',
               icon: 'map-outline',
-            }
+            },
+            {
+              title: 'Novo roteiro',
+              link: 'itinerary/create',
+              icon: 'plus-circle-outline',
+            },
           ]
         );
         this.router.navigate(["/itinerary/list"]);
