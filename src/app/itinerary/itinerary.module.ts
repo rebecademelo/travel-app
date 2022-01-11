@@ -10,13 +10,15 @@ import { RouterModule } from '@angular/router';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthModule } from '../auth/auth.module';
+import { ViewItineraryComponent } from './view-itinerary/view-itinerary.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
     CreateEditItineraryComponent,
-    ListItineraryComponent
+    ListItineraryComponent,
+    ViewItineraryComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faGlobeAmericas, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faGlobeAmericas, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 import { LoginService } from './auth/services/login.service';
 import { SharedService } from './shared/service/shared.service';

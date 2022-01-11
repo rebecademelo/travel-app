@@ -1,0 +1,7 @@
+.center {
+    width: 100%;
+    max-width: 50%;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+}

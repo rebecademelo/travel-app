@@ -1,0 +1,100 @@
+<div class="card-container">            
+    <div>
+        <nb-card class="card-div">
+            <nb-card-body>
+                <div class="flex-body">
+                    <div class="flex-column">
+                        <div class="flex-row">
+                            <a [routerLink]="['/flight/list']" alt="Voltar">
+                                <nb-icon icon="arrow-circle-left-outline" class="card-item-icon card-item-icon-circle"></nb-icon>
+                            </a>
+                        </div>
+                        <div class="flex-row">
+                            <span class="label-span departure-airport-span">{{ flight.departureAirport }}</span>
+                            <span class="icons-span">
+                                <fa-icon [icon]="faDotCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                <fa-icon [icon]="faPlane" class="nb-icon-menu flightIcons"></fa-icon>
+                                <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                <fa-icon [icon]="faDotCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                            </span>
+                            <span class="label-span arrival-airport-span">{{ flight.arrivalAirport }}</span>
+                        </div>
+                        <div class="flex-row">
+                            <span class="label-city-span departure-city-span">{{ flight.departureCity }}</span>
+                            <span class="label-city-span estimated-time-span">{{ flight.estimatedTime }}</span>
+                            <span class="label-city-span arrival-city-span">{{ flight.arrivalCity }}</span>
+                        </div>
+                        <div class="line"></div>
+
+                        <div class="flex-row">
+                            <nb-card class="mini-card mini-card-margin">
+                                <nb-card-body>
+                                    <p><span class="mini-card-label-span">Data</span></p>
+                                    <p><span class="mini-card-label-span">{{ flight.flightDate }}</span></p>
+                                </nb-card-body>
+                            </nb-card>
+
+                            <nb-card class="mini-card mini-card-margin">
+                                <nb-card-body>
+                                    <p><span class="mini-card-label-span">Saída</span></p>
+                                    <p><span class="mini-card-label-span">{{ flight.departure }}</span></p>
+                                </nb-card-body>
+                            </nb-card>
+
+                            <nb-card class="mini-card mini-card-margin last-mini-card-margin">
+                                <nb-card-body>
+                                    <p><span class="mini-card-label-span">Chegada</span></p>
+                                    <p><span class="mini-card-label-span">{{ flight.arrival }}</span></p>
+                                </nb-card-body>
+                            </nb-card>  
+                        </div>
+
+                        <div class="flex-row">
+                            <nb-card class="medium-card mini-card-margin">
+                                <nb-card-body>
+                                    <div class="flex-row">
+                                        <div class="flex-column">
+                                            <p><span class="mini-card-label-span">Voo</span></p>
+                                            <p><span class="mini-card-label-span">{{ flight.flightNumber }}</span></p>
+                                        </div>
+
+                                        <div class="flex-column">
+                                            <p><span class="mini-card-label-span">Portão</span></p>
+                                            <p><span class="mini-card-label-span">{{ flight.gate }}</span></p>
+                                        </div>
+
+                                        <div class="flex-column">
+                                            <p><span class="mini-card-label-span">Embarque</span></p>
+                                            <p><span class="mini-card-label-span">{{ flight.boarding }}</span></p>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+
+                        <div class="flex-row">
+                            <nb-card class="medium-card mini-card-margin">
+                                <nb-card-body>
+                                    <div class="flex-row">
+                                        <div class="flex-column">
+                                            <p><span class="mini-card-label-span">Passageiro</span></p>
+                                            <p><span class="mini-card-label-span">{{ flight.passenger }}</span></p>
+                                        </div>
+
+                                        <div class="flex-column">
+                                            <p><span class="mini-card-label-span">Assento</span></p>
+                                            <p><span class="mini-card-label-span">{{ flight.seat }}</span></p>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

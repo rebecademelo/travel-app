@@ -1,0 +1,88 @@
+<div class="list-cards-container">            
+    <div>
+        <h1 id="title" class="title">
+            Voos
+            <a [routerLink]="['/flight/create']" alt="Adicionar">
+                <nb-icon icon="plus-circle-outline" class="add-icon add-icon-circle"></nb-icon>
+            </a>
+        </h1>
+        <nb-list>
+            <nb-list-item *ngFor="let flight of flights">
+                <nb-card class="card-div">
+                    <nb-card-body>
+                        <div class="flex-body">
+                            <div class="flex-row">
+                                <div class="flex-card-text">
+                                    <span class="description-span">{{ flight.flightDate }}</span>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="flex-row">
+                                <div class="flex-column">
+                                    <fa-icon [icon]="faDotCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                    <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                    <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                    <fa-icon [icon]="faPlane" class="nb-icon-menu flightIcons" [rotate]="90"></fa-icon>
+                                    <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                    <fa-icon [icon]="faCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                    <fa-icon [icon]="faDotCircle" class="nb-icon-menu flightIcons"></fa-icon>
+                                </div>
+                            </div>
+                            <div class="flex-column">
+                                <!--<div class="flex-card-text">
+                                    <span class="description-span">{{ itinerary.description }}</span>
+                                </div>-->
+                                <div class="flex-card-text dates-div">
+                                    <p><span class="dates-span">{{ flight.departureCity }}</span></p>
+                                    <p><span class="dates-span">{{ flight.estimatedTime }}</span></p>
+                                    <p><span class="dates-span">{{ flight.arrivalCity }}</span></p>
+                                </div>
+                                
+                            </div>
+                            <div class="flex-row">
+                                <div class="flex-column card-icon">
+                                    <a [routerLink]="['/flight/view', flight.id]" alt="Visualizar" class="item-icon">
+                                        <nb-icon icon="eye-outline" class="card-item-icon card-item-icon-circle"></nb-icon>
+                                    </a>
+                                    <a [routerLink]="['/flight/edit', flight.id]" alt="Editar" class="item-icon">
+                                        <nb-icon icon="edit-outline" class="card-item-icon card-item-icon-circle"></nb-icon>
+                                    </a>
+                                    <a href="javascript:void(0);" alt="Excluir" (click)="open(dialog, flight)" class="item-icon">
+                                        <nb-icon icon="trash-2-outline" class="card-item-icon-circle"></nb-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </nb-list-item>
+        </nb-list>
+    </div>
+</div>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+        <nb-card-header>Remover voo</nb-card-header>
+        <nb-card-body>
+            Deseja mesmo excluir o voo: {{ data.flightNumber }}?
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="div-input">
+                <div class="div-input-margin half-size-div">
+                    <button nbButton type="button" status="info" 
+                            class="appearance-filled full-width size-large shape-rectangle status-info no-focus-button-area"
+                            (click)="ref.close()">
+                            Cancelar
+                    </button>
+                </div>
+                <div class="half-size-div">
+                    <button nbButton type="button" status="primary" 
+                            class="appearance-filled full-width size-large shape-rectangle status-primary no-focus-button-area" 
+                            (click)="deleteFlight($event, data, ref)">
+                            Excluir
+                    </button>
+                </div>
+            </div>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>

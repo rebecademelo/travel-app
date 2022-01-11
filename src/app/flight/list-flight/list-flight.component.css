@@ -1,0 +1,152 @@
+.list-cards-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card-div {
+    width: 600px;
+    border-color: #a16eff;
+}
+
+@media screen and (max-width: 650px) {
+    .card-div {
+        width: 470px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .card-div {
+        width: 300px;
+    }
+
+    .flex-card-container {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .flex-card-item {
+        margin-top: 35px;
+    }
+
+    .card-icon {
+        text-align: right;
+        align-self: flex-end;
+        display: flex;
+        justify-content: end;
+        position: relative !important;
+    }
+
+    .flex-body {
+        display: block !important;
+    }
+
+    .flex-column {
+        margin-top: 25px;
+    }
+}
+
+.center {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+}
+
+.flex-card-container {
+    display: flex;
+    width: 100%;
+}
+
+.flex-card-item {
+    flex: 1;
+}
+
+.flex-card-item:first-child {
+    margin-right: 20px;
+}
+
+.flex-card-text {
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.card-icon {
+    /*text-align: right;
+    align-self: flex-end;
+    display: flex;
+    bottom: 0;
+    right: 0;*/
+    position: absolute !important;
+}
+
+.card-item-icon {
+    margin-right: 10px;
+}
+
+.card-item-icon-circle {
+    height: 30px;
+    width: 30px;
+    border: 2px solid;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.add-icon {
+    float: right;
+}
+
+.add-icon-circle {
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+}
+
+.description-span {
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.dates-div {
+    margin-top: 30px;
+}
+
+.dates-span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.flex-row {
+    flex-direction: row;
+    display: flex;
+    padding-right: 25px;
+}
+
+.flex-column {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.flex-body {
+    display: flex;
+}
+
+.line {
+    border-left: 1px solid #a16eff;
+    height: auto;
+}
+
+.flightIcons {
+    padding-left: 10px;
+}
+
+.item-icon {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
